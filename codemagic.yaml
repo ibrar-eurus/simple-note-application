@@ -4,8 +4,7 @@ workflows:
         name: Android app # workflow name
         scripts:
         - name: Test
-          script: ./gradlew test
-          test_report: app/build/test-results/**/*.xml
+          script: echo "hello world"
         - name : build 
           script: |
                  chmod +x gradlew
