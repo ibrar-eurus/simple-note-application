@@ -1,8 +1,8 @@
+# Workflow setup for building Native Android project
 workflows:
-  my-workflow:
-    scripts:
-      - name: Build Android APK
-        working_directory: android
-        script: ./gradlew assembleRelease
-    artifacts:
-      - app/build/outputs/**/**/*.apk
+    android-app: # workflow ID
+        name: Android app # workflow name
+        scripts:
+            - ./gradlew assembleDebug
+        artifacts:
+            - build/outputs/**/**/*.apk
