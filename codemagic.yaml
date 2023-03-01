@@ -1,12 +1,15 @@
 # Workflow setup for building Native Android project
 workflows:
     android-app: # workflow ID
-        name: test
-        scripts:
-          - echo  "hello world"
         name: Android app # workflow name
         scripts:
+        - name: Test
+          script: ./gradlew test
+          test_report: app/build/test-results/**/*.xml
+        - name : build 
+          script:
             - chmod +x gradlew
             - ./gradlew assembleDebug
         artifacts:
           - app/build/**/outputs/**/*.apk
+ 
