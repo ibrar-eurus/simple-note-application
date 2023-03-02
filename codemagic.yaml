@@ -7,7 +7,12 @@ workflows:
               script: |
                   echo "hello world"
 
-            - name : build 
+            - name : sonercube
+              script: |
+                     chmod +x gradlew
+                    ./gradlew sonarqube  -Dsonar.projectKey=abkhan -Dsonar.host.url=http://localhost:9000  -Dsonar.login=418d1e6c287b46864b9b62487ff60ecbb0532f93
+                     
+             - name : build 
               script: |
                      chmod +x gradlew
                      ./gradlew assembleDebug
