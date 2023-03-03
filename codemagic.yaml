@@ -4,14 +4,14 @@ workflows:
         name: Android app # workflow name
         scripts:
             - name: Install CocoaPods dependencies
-               script: | 
+              script: | 
                    chmod +x gradlew
                   ./gradlew sonarqube \
                       -Dsonar.projectKey=abkhan \
                       -Dsonar.host.url=http://localhost:9000 \
                       -Dsonar.login=72202ffde6987e4fc5f610d09c042deb67752a15
             - name: build your app without sigining 
-               script: | 
+              script: | 
                  chmod +x gradlew
                  ./gradlew assembleDebug
          
