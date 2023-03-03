@@ -1,15 +1,14 @@
 # Workflow setup for building Native Android project
 workflows:
     android-app: # workflow ID
-        name: Android app # workflow name
-        scripts:                                      
-            - name: build your app without sigining 
-              script: | 
-                  chmod +x gradlew
-                 
-                 ./gradlew assembleDebug
-         
-        artifacts:
+    name: Android app # workflow name
+    scripts:                                      
+        - name: build your app without sigining 
+          script: | 
+              chmod +x gradlew
+             ./gradlew assembleDebug
+
+     artifacts:
            - app/build/**/outputs/**/*.apk
 
 
