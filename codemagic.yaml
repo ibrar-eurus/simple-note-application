@@ -3,15 +3,19 @@ workflows:
     android-app: # workflow ID
         name: Android app # workflow name
         scripts:
-         - name: Install CocoaPods dependencies
-           script: | 
-               chmod +x gradlew
-               ./gradlew sonarqube  -Dsonar.projectKey=abkhan -Dsonar.host.url=http://localhost:9000  -Dsonar.login=418d1e6c287b46864b9b62487ff60ecbb0532f93
-
-         - name: build your app without sigining 
-           script: | 
-             chmod +x gradlew
-             ./gradlew assembleDebug
-    artifacts:
+            - name: Install CocoaPods dependencies
+               script: | 
+                   chmod +x gradlew
+                  ./gradlew sonarqube \
+                      -Dsonar.projectKey=abkhan \
+                      -Dsonar.host.url=http://localhost:9000 \
+                      -Dsonar.login=72202ffde6987e4fc5f610d09c042deb67752a15
+            - name: build your app without sigining 
+               script: | 
+                 chmod +x gradlew
+                 ./gradlew assembleDebug
+         
+        artifacts:
            - app/build/**/outputs/**/*.apk
+
 
