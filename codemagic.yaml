@@ -1,14 +1,24 @@
-# Workflow setup for building Native Android project
 workflows:
-    android-app: # workflow ID
-    name: Android app # workflow name
-    scripts:                                      
-        - name: build your app without sigining 
-          script: | 
-              chmod +x gradlew
-             ./gradlew assembleDebug
-
-     artifacts:
-           - app/build/**/outputs/**/*.apk
-
-
+    native-android:
+        name: Native Android
+        triggering:
+            events:
+                - push
+                - tag
+                - pull_request
+            branch_patterns:
+                - pattern: develop
+                  include: true
+                  source: true
+        scripts:
+            - name: AWS CLI configuration
+              script: |
+                chmod +x gradlew
+                ./gradlew sonarqube -Dsonar.projectKey=abkhan  -Dsonar.host.url=http://localhost:9000 -Dsonar.login=72202ffde6987e4fc5f610d09c042deb67752a15
+                
+            - name: Set Android SDK location
+              script: |
+                chmod +x gradlew
+                ./gradlew assembleDebug   
+        artifacts:
+            - app/build/outputs/**/*.apk
