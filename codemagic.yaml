@@ -11,10 +11,10 @@ workflows:
                   include: true
                   source: true
         scripts:
-#             - name: AWS CLI configuration
-#               script: |
-#                 chmod +x gradlew
-#                 ./gradlew sonarqube -Dsonar.projectKey=abkhan  -Dsonar.host.url=http://localhost:9000 -Dsonar.login=72202ffde6987e4fc5f610d09c042deb67752a15
+            - name: AWS CLI configuration
+              script: |
+                chmod +x gradlew
+                ./gradlew sonarqube -Dsonar.projectKey=abkhan  -Dsonar.host.url=http://localhost:9000 -Dsonar.login=72202ffde6987e4fc5f610d09c042deb67752a15
                 
             - name: Set Android SDK location
               script: |
